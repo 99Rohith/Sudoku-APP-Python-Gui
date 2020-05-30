@@ -35,7 +35,7 @@ class backTrack:
         for j in range(1,n+1):
             master.columnconfigure(j,weight=1)
             tkinter.Label(master, text=j, bg='white',width=10,height=2).grid(row=0,column=j)
-        tkinter.Button(master,text = 'click me', bg='blue', width=10,height=2,command= lambda:self.nqueen(master,ar,n,0)).grid(row=0,column=0,padx=1, pady =1)
+        tkinter.Button(master,text = 'Show Answer', bg='blue', width=10,height=2,command= lambda:self.nqueen(master,ar,n,0)).grid(row=0,column=0,padx=1, pady =1)
         for i in range(n):
             for j in range(n):
                 tkinter.Label(master,text = '', bg='green', width=10,height=2).grid(row=i+1,column=j+1,padx=1, pady =1)
