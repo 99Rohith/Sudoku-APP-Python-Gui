@@ -1,8 +1,8 @@
+
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
 """
 Created on Sat May 30 13:23:12 2020
-
 @author: rohith
 """
 
@@ -35,7 +35,7 @@ class backTrack:
         for j in range(1,n+1):
             master.columnconfigure(j,weight=1)
             tkinter.Label(master, text=j, bg='white',width=10,height=2).grid(row=0,column=j)
-        tkinter.Button(master,text = 'Show Answer', bg='blue', width=10,height=2,command= lambda:self.nqueen(master,ar,n,0)).grid(row=0,column=0,padx=1, pady =1)
+        tkinter.Button(master,text = 'Show Answer', bg='blue', width=10,height=2,command= lambda:self.check_nqueen(master,ar,n,0)).grid(row=0,column=0,padx=1, pady =1)
         for i in range(n):
             for j in range(n):
                 tkinter.Label(master,text = '', bg='green', width=10,height=2).grid(row=i+1,column=j+1,padx=1, pady =1)
@@ -68,6 +68,12 @@ class backTrack:
             j = j+1
         return True
     
+    def check_nqueen(self,master,ar,n,cur_row):
+    	ans = self.nqueen(master,ar,n,cur_row)
+    	if not ans:
+    		master.destroy()
+    		print("No solution for n=",n)
+            
     def nqueen(self,master,ar,n,cur_row):
         if cur_row == n:
             return True
@@ -83,7 +89,7 @@ class backTrack:
         
 if __name__ == "__main__":
     #n = int(input("Enter n:"))
-    n = 4
+    n = 3
     master = tkinter.Tk(className='N Queen')
     nq = backTrack()
     ar = nq.initialize(master,n)
@@ -91,6 +97,6 @@ if __name__ == "__main__":
     """if nq.nqueen(master,ar,n,0):
         #nq.printar(ar,n)
         g = gui()
-        g.screen(ar,n)
+        g.screen(a
     else:
         print("No solution exists")"""
