@@ -9,25 +9,6 @@ Created on Sat May 30 13:23:12 2020
 import tkinter
 import sqlite3
 import random
-
-class gui:
-    
-    def screen(self,ar,n):
-        master = tkinter.Tk(className='N Queen')
-        for i in range(1,n+1):
-            master.rowconfigure(i,weight=1)
-            tkinter.Label(master, text=i, bg='white',width=10,height=2).grid(row=i,column=0)
-        for j in range(1,n+1):
-            master.columnconfigure(j,weight=1)
-            tkinter.Label(master, text=j, bg='white',width=10,height=2).grid(row=0,column=j)
-        tkinter.Button(master,text = 'click me', bg='blue', width=10,height=2).grid(row=0,column=0,padx=1, pady =1)
-        for i in range(0,n):
-            for j in range(0,n):
-                if ar[i][j]==1:
-                    tkinter.Label(master,text = 'Q', fg='white', bg='red', width=10,height=2).grid(row=i+1,column=j+1,padx=1, pady =1)
-                else:
-                    tkinter.Label(master,text = '', bg='green', width=10,height=2).grid(row=i+1,column=j+1,padx=1, pady =1)
-        master.mainloop()
         
 class backTrack:
     solved = False
@@ -204,9 +185,3 @@ if __name__ == "__main__":
     ar =nq.getRandomSudoku()
     nq.initialize(master,ar,n)
     master.mainloop()
-    """if nq.sudoku(master,ar,n,0):
-        #nq.printar(ar,n)
-        g = gui()
-        g.screen(ar,n)
-    else:
-        print("No solution exists")"""
