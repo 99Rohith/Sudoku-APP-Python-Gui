@@ -62,7 +62,7 @@ class backTrack:
             cur.execute(''' SELECT COUNT(*) FROM Sudoku ''')
             count = cur.fetchone()#this is a tupule
             randind = random.randint(1,count[0])
-            print("Fetcing Sudoku No-", randind, "from DB.....")
+            #print("Fetcing Sudoku No-", randind, "from DB.....")
             cur.execute(''' SELECT sudokuLayout from Sudoku WHERE ind = ? ; ''',(randind,))
             sstr = cur.fetchone()#get a random tupule
             sudokustr = sstr[0]
@@ -79,7 +79,7 @@ class backTrack:
         return sudokulayout
         
     def initialize(self,master,sudokulayout,n):
-        print("Initializing Window")
+        #print("Initializing Window")
         self.solved=False
         for i in range(1,n+1):
             master.rowconfigure(i,weight=1)
@@ -102,11 +102,11 @@ class backTrack:
         
     def checkuserans(self,ar,elist,n):
         if self.solved:
-            print("Solution Revealed")
+            #print("Solution Revealed")
             tkinter.Label(master,text = 'Solution\nRevealed', bg='Red', width=10,height=2).grid(row=10,column=2,padx=1, pady =1)
             return
         
-        print("In checkans")
+        #print("In checkans")
         esize = 0
         error = False
         inputs = [e.get() for e in elist]
